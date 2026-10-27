@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>IshowSpeed</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 id="h1">Click the Random Speed</h1>
+        <p class="OgM">Click to button to change Speed</p>
+
+        <div class="Speed1">
+            <img src="assets/Speed1.jpg" alt="Speed1" class="Sp1">
+        </div>
+       
+        <div class="Buton">
+            <button class="btn"> Click Me!</button>
+        </div>
+
+       <script>
+
+        const headCenter = document.querySelector('#h1');
+        console.log("By ID:", headCenter);
+        headCenter.style.textAlign = "center";
+        
+        const speedImage = document.querySelector('.Sp1');
+        console.log("By Class Name: ", speedImage);
+        speedImage.style.display = "block";
+
+        const speedMad = new Audio('assets/R.mp3');
+        const button = document.querySelector('.btn');
+        const messageElement = document.querySelector('.OgM');
+        
+        let canClickImage =false;
+        let currentScale = 1.0;
+
+        button.addEventListener('click',() => {
+            messageElement.textContent = "My Bad I mean Click Speed";
+            button.style.display ="none";
+            canClickImage = true;
+        });
+
+        speedImage.addEventListener('click',() => {
+
+            if (!canClickImage) {
+                return;
+            }
+            if (speedImage.src.includes("Speed1.jpg")){
+                speedImage.src ="assets/Speed2.jpg";
+                speedImage.className ="Sp2";
+                messageElement.textContent = "Good Job! Now do it again";
+            } else if (speedImage.src.includes("Speed2.jpg")){
+                speedImage.src ="assets/Speed3.jpg";
+                speedImage.className = "Sp3";
+                messageElement.textContent ="Wow you Follow Everything";
+            } else if (speedImage.src.includes("Speed3.jpg")){
+                if (currentScale > 0.4) {
+                    currentScale = Math.max(0.4, currentScale - 0.15);
+                    speedImage.style.transform = `scale(${currentScale})`;
+                    messageElement.textContent = "Keep on clicking and Speed will be mad";
+                }
+                if (currentScale <= 0.4) {
+                    speedImage.src ="assets/Speed4.jpg";
+                    speedImage.className="Sp4";
+                    speedImage.style.transform = "scale(1)";
+                    messageElement.textContent = "SPEED IS NOW REALLY MAD";
+                    speedMad.play();
+                }
+            }
+        });
+        </script>
+    </body>
+</html>

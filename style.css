@@ -1,0 +1,64 @@
+body {
+    background-color: lightgrey;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+#h1 {
+    text-align: center;
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+}
+
+.Speed1 {
+    text-align: center;
+}
+
+.OgM {
+    text-align: center;
+    font-weight: bold;
+    font-size: clamp(1.25rem, 4vw, 1.875rem);
+}
+
+.Sp1, .Sp2, .Sp3, .Sp4 {
+    border: 2px solid black;
+    width: min(350px, 100%);
+    aspect-ratio: 1;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    transition: transform 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.2), filter 0.8s ease;
+    cursor: pointer;
+}
+
+.Sp2 {
+    border-radius: 50%;
+}
+
+.Sp2:hover {
+    transform: scale(1.1);
+}
+
+.Buton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.btn {
+    min-height: 44px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+@media (max-width: 400px) {
+    body {
+       padding: 12px;
+    }
+}
