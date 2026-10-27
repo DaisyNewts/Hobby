@@ -53,15 +53,15 @@
                 speedImage.className = "Sp3";
                 messageElement.textContent ="Wow you Follow Everything";
             } else if (speedImage.src.includes("Speed3.jpg")){
-                if (currentScale > 0.4) {
-                    currentScale = Math.max(0.4, currentScale - 0.15);
+                if (currentScale > 0.05) {
+                    currentScale = Math.max(0.05, currentScale - 0.15);
                     speedImage.style.transform = `scale(${currentScale})`;
                     messageElement.textContent = "Keep on clicking and Speed will be mad";
                 }
-                if (currentScale <= 0.4) {
+                if (currentScale <= 0.05) {
                     speedImage.src ="assets/Speed4.jpg";
                     speedImage.className="Sp4";
-                    speedImage.style.transform = "scale(1)";
+                    speedImage.style.transform = "scale(2)";
                     messageElement.textContent = "SPEED IS NOW REALLY MAD";
                     speedMad.play();
                 }
